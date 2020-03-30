@@ -15,11 +15,9 @@
   "author": "Kshitij Arade",
   "build": {
     "appId": "com.kshitijarade.instagram",
-    
     "mac": {
       "icon": "insta.png"
     },
-
     "win": {
       "target": "squirrel",
       "icon": "insta.png"

@@ -3,21 +3,17 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
 function createWindow () {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 400,
-    height: 600,
+    width: 500,
+    height: 900,
+    maxWidth: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
   })
   mainWindow.loadURL('https://www.instagram.com')
-  mainWindow.webContents.setUserAgent("Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko; googleweblight) Chrome/38.0.1025.166 Mobile Safari/535.19");
-  let contents = win.webContents
-  console.log(contents)
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.setUserAgent("Mozilla/5.0 (iPhone; CPU iPhone OS 13_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Mobile/15E148 Safari/604.1");
+  mainWindow.webContents.on("devtools-opened", () => { mainWindow.webContents.closeDevTools(); });
 }
 
 // This method will be called when Electron has finished
@@ -38,5 +34,4 @@ app.on('activate', function () {
   if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+
